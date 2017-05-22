@@ -2,7 +2,11 @@ QT += qml quick
 
 CONFIG += c++14
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    commandlineprocessor.cpp \
+    controller.cpp \
+    filespec.cpp \
+    workset.cpp
 
 RESOURCES += qml.qrc
 
@@ -27,3 +31,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    commandlineprocessor.h \
+    controller.h \
+    filespec.h \
+    icontroller.h \
+    iworkset.h \
+    workset.h

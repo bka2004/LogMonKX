@@ -28,3 +28,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += tst_commandlineprocessortest.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
+
+
+INCLUDEPATH += ../App/
+SOURCES += ../App/commandlineprocessor.cpp ../App/filespec.cpp

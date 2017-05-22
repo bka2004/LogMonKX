@@ -3,8 +3,8 @@
 #include "filespec.h"
 
 
-CommandLineProcessor::CommandLineProcessor(IWorkset& workset)
-    : m_workset(workset)
+CommandLineProcessor::CommandLineProcessor(IController &controller)
+    : m_controller(controller)
 {
 }
 
@@ -14,5 +14,5 @@ void CommandLineProcessor::Process(const QStringList& arguments)
     qtParser.process(arguments);
 
     for (auto curFileName : qtParser.positionalArguments())
-        m_workset.GetController().TriggerOpenFile(FileSpec(curFileName));
+        m_controller.TriggerOpenFile(FileSpec(curFileName));
 }

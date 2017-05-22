@@ -9,13 +9,13 @@ class CommandLineProcessor
 public:
 
     // methods
-    CommandLineProcessor(IWorkset& workset);
+    CommandLineProcessor(IController& controller);
     void Process(const QStringList& arguments);
 
 private:
 
     // data members
-    IWorkset& m_workset;
+    IController& m_controller;
 };
 
 #endif // COMMANDLINEPROCESSOR_H

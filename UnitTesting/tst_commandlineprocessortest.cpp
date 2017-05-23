@@ -12,6 +12,7 @@ public:
 private Q_SLOTS:
     void passing_no_arguments_does_not_trigger_controller();
     void passing_one_argument_triggers_controller_once();
+    void passing_two_arguments_triggers_controller_twice();
 };
 
 class ControllerMock : public IController
@@ -55,12 +56,25 @@ void CommandLineProcessorTest::passing_one_argument_triggers_controller_once()
     CommandLineProcessor comLineProcessor(controllerMock);
 
     // act
-    comLineProcessor.Process({ "LogMonKX.exe someFile.log" });
+    comLineProcessor.Process({ "LogMonKX.exe", "someFile.log" });
 
     // assert
     QVERIFY(controllerMock.GetTriggerCount() == 1);
 }
 
+
+void CommandLineProcessorTest::passing_two_arguments_triggers_controller_twice()
+{
+    // arrange
+    ControllerMock controllerMock;
+    CommandLineProcessor comLineProcessor(controllerMock);
+
+    // act
+    comLineProcessor.Process({ "LogMonKX.exe", "someFile.log", "secondFile.log" });
+
+    // assert
+    QVERIFY(controllerMock.GetTriggerCount() == 2);
+}
 
 QTEST_APPLESS_MAIN(CommandLineProcessorTest)
 

@@ -1,11 +1,22 @@
 include(../gtest_dependency.pri)
 
 TEMPLATE = app
-CONFIG += console c++11
+CONFIG += console c++14
 CONFIG -= app_bundle
 CONFIG += thread
-CONFIG -= qt
+#CONFIG -= qt
 
-HEADERS +=     tst_testcase1.h
+HEADERS +=     \
+    controllermock.h
 
-SOURCES +=     main.cpp
+APP_PATH = ../../../../App/
+
+INCLUDEPATH += $${APP_PATH}
+
+SOURCES +=     main.cpp \
+    controllertests.cpp \
+    commandlineprocessortests.cpp
+
+SOURCES += $${APP_PATH}commandlineprocessor.cpp \
+    $${APP_PATH}filespec.cpp
+

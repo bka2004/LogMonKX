@@ -11,6 +11,7 @@ public:
 
     // methods
     FileSpec(const QString& fileName);
+    bool operator==(const FileSpec& other) const;
 
 private:
 

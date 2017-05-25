@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
 
-SUBDIRS += testcase1
+SUBDIRS += gtests
